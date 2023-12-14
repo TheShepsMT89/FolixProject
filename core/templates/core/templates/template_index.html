@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Folix - ¡Aprender inglés nunca fue tan divertido!</title>
+        <!-- Estilos y Recursos -->
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'core/styles/index.css' %}" />
+        <link rel="stylesheet" href="{% static 'core/styles/animatiss.css' %}" />
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+        {% block specific_styles %}
+        {% endblock specific_styles %}
+    </head>
+    <body>
+        <header class="header">
+            <a href="{% url 'home' %}" class="logo">
+                <img src="{% static 'core/img/folix.svg' %}"
+                     alt="Icon"
+                     height="15%"
+                     width="15%" />
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'themes' %}" id = "btnTemas">Temas</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'ex1' %}">Juegos</a>
+                    </li>
+                    <li>
+                        <button id = "boton" class="btnFormulario">Iniciar Sesión</button>
+                    </li>
+                </ul>
+            </nav>
+            <a onclick="openNav()" class="menu" href="#">
+                <button class = "botonResponsive">
+                    <img src="{% static 'core/img/menu.svg' %}" alt="" />
+                </button>
+            </a>
+            <div id="mobile-menu" class="overlay">
+                <a onclick="closeNav()" href="" class="close">&times;</a>
+                <div class="overlay-content">
+                    <a href="{% url 'home' %}">Inicio</a>
+                    <a href="{% url 'themes' %}" id = "btnTemas">Temas</a>
+                    <a href="{% url 'ex1' %}">Juegos</a>
+                    <button id = "botonresponsive" class = "btnFormulario">Iniciar Sesión</button>
+                </div>
+            </div>
+        </header>
+        {% block welcome %}
+        {% endblock welcome %}
+        <section id="login">
+            <form action="{% url 'home' %}" class="login">
+                <article class="login-body">
+                    <br />
+                    <h1 class="titulo">Iniciar sesión</h1>
+                    <br />
+                    <br />
+                    <label for="user_email">Correo electrónico</label>
+                    <input type="text" id="user_email" name="email" required />
+                    <br />
+                    <br />
+                    <label for="user_password">Contraseña</label>
+                    <input type="password" id="user_password" name="password" required />
+                    <br />
+                    <br />
+                    <br />
+                    <div>
+                        <button type="submit" class="btnInicioSesion">Iniciar Sesión</button>
+                    </div>
+                    <br />
+                    <br />
+                    <p>
+                        ¿No tienes una cuenta? <span id="registro">Regístrate</span>
+                    </p>
+                    <br />
+                </article>
+            </form>
+        </section>
+        <section id="register">
+            <form class="registro" method="post">
+                {% csrf_token %}
+                <div class="registro-body">
+                    <br />
+                    <h1 class="titulo">Registrarse</h1>
+                    <br />
+                    <div class="registro-linea">
+                        <div class="labels">
+                            <label for="first_name">Nombres</label>
+                            <label for="last_name">Apellidos</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="text"
+                                   class="input1"
+                                   required
+                                   name="first_name"
+                                   id="first_name"
+                                   autocomplete="given-name" />
+                            <input type="text"
+                                   class="input2"
+                                   required
+                                   name="last_name"
+                                   id="last_name"
+                                   autocomplete="family-name" />
+                        </div>
+                    </div>
+                    <div class="registro-columna">
+                        <br />
+                        <br />
+                        <label for="username">Usuario</label>
+                        <input type="text"
+                               required
+                               name="username"
+                               id="username"
+                               autocomplete="username" />
+                        <br />
+                        <br />
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" required name="email" id="email" autocomplete="email" />
+                        <br />
+                        <br />
+                        <label for="password">Contraseña</label>
+                        <input type="password"
+                               required
+                               name="password"
+                               id="password"
+                               autocomplete="new-password" />
+                        <br />
+                        <br />
+                        <label for="confirm_password">Repetir Contraseña</label>
+                        <input type="password"
+                               required
+                               name="confirm_password"
+                               id="confirm_password"
+                               autocomplete="new-password" />
+                        <br />
+                        <div>
+                            <button type="submit" id="registrarse" class="btnRegistro">Registrarse</button>
+                        </div>
+                        <br />
+                        <p>
+                            ¿Ya tienes una cuenta? <span id="boton2">Iniciar sesión</span>
+                        </p>
+                        <br />
+                    </div>
+                </div>
+            </form>
+        </section>
+        {% block content %}
+        {% endblock content %}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <footer id="seccion2">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h2>Sobre Nosotros</h2>
+                        <p>
+                            Somos un grupo de estudiantes comprometidos con la excelencia y la innovación.
+                            Nuestro equipo está formado por profesionales apasionados que
+                            buscan brindar soluciones creativas a nuestros clientes
+                        </p>
+                    </div>
+                    <div class="footer-section contact">
+                        <h2>Contacto</h2>
+                        <br />
+                        <p>Email: team.folix.project@gmail.com</p>
+                        <p>Teléfono: +123 456 789</p>
+                    </div>
+                    <div class="footer-section links">
+                        <h2>Enlaces Rápidos</h2>
+                        <ul>
+                            <br />
+                            <li>
+                                <a href="#">Inicio</a>
+                            </li>
+                            <br />
+                            <li>
+                                <a href="#">Temas</a>
+                            </li>
+                            <br />
+                            <li>
+                                <a href="#">Juegos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="{% static 'core/js/script.js' %}"></script>
+    <script type="text/javascript" src="{% static 'core/js/nav.js' %}"></script>
+    <script>
+        AOS.init();
+    </script>
+</html>

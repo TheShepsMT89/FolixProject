@@ -1,0 +1,37 @@
+{% extends "core/templates/template_index.html" %}
+{% load static %}
+{% block specific_styles %}
+    <link rel="icon" href="{% static 'core/img/icon.png' %}" />
+    <link rel="stylesheet" href="{% static 'core/styles/style_themes.css' %}" />
+{% endblock specific_styles %}
+{% block content %}
+
+<!-- Arreglar: <h1 class = "Titulo">Verbos en Inglés</h1> -->
+
+{% for topic in topics %}
+
+    <section class="scale-up-center" id = "SeccionTemas">
+        <div class = "InformacionTemas">
+            <br />
+            <h2 class = "subTema">{{topic.id}}. {{topic.name}}</h2>
+            <br>
+
+            {% for subtopic in subtopics %}
+                {% if subtopic.topic_id == topic.id %}
+                <ul class = "txtTema">
+                    <li>{{subtopic.name}}</li>
+                </ul>
+                <p>{{subtopic.description}}</p>
+                <h3>Ejemplo:</h3>
+                <p>{{subtopic.example}}</p>
+                <br>
+                {% endif %}
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endfor %}
+
+{% endblock content %}
+

@@ -1,0 +1,62 @@
+{% extends "core/templates/template_index.html" %}
+{% load static %}
+{% block specific_styles %}
+    <link rel="icon" href="../../static/core/img/icon.png" />
+    <link rel="stylesheet" href="{% static 'core/styles/style_home.css' %}" />
+{% endblock specific_styles %}
+{% block welcome %}
+    <section class="tracking-in-expand welcome " id = "bienvenida">
+        <h1 data-text="text" class="bienvenida">
+            <p>Bienvenido a <span class="FOLIX TXT">Folix</span> </p>
+        </h1>
+    </section>
+{% endblock welcome %}
+{% block content %}
+    <div class="SeccionesHoja">
+        <div data-aos="fade-right" class="SeccionIzq">
+            <div class = "SeccionIzqContenido">
+                {% comment %} <h1 class = "FOLIXTITULO">Folix: ¡Aprender inglés nunca fue tan divertido!</h1> {% endcomment %}
+                <br />
+                <br />
+                <!--<img src="{% static 'core/img/logo.png' %}" />-->
+                <h2>¿Qué es Folix?</h2>
+                <p>
+                    Folix es una plataforma innovadora diseñada para llevar <strong>tu aprendizaje de idiomas al siguiente nivel</strong>. Con un enfoque interactivo y amigable, te sumergirás en un viaje educativo emocionante y efectivo. Ya sea que estés comenzando desde cero o perfeccionando tus habilidades existentes, Folix se adapta a tu ritmo y nivel.
+                </p>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--<img src="{% static 'core/img/logo.png' %}" /> -->
+        <section data-aos="fade-left" class="SeccionDer">
+            <div class = "SeccionDerContenido">
+                <h2>¿Por qué usar Folix?</h2>
+                <p>
+                    No solo aprenderás un idioma, sino que te sumerge en una experiencia de aprendizaje completa. Ya sea que estés aprendiendo por razones profesionales, personales o de viaje, nuestra plataforma te brinda las herramientas necesarias para alcanzar la fluidez de manera efectiva y entretenida.
+                </p>
+            </div>
+        </section>
+        <br />
+        <br />
+        <section data-aos="fade-right" class="SeccionIzq">
+            <div class = "SeccionIzqContenido">
+                <h2>Entretenido, dinámico y gratuito</h2>
+                <p>
+                    Si aprendes con Folix, te divertirás. En nuestros juegos, tenemos retos interesantes con los que ganarás puntos y obtendrás nuevas habilidades en el idioma.
+                </p>
+            </div>
+        </section>
+        <br />
+        <br />
+        <section data-aos="fade-left" class="SeccionDer">
+            <div class = "SeccionDerContenido">
+                <h2>Destruye tus límites</h2>
+                <p>
+                    Podrás elegir la dificultad dependiendo de tu nivel. Las funcionalidades y mecánicas de nuestros juegos, junto a ti, garantizamos que aumentarán tus conocimientos.
+                </p>
+                <br />
+                <h2>Aprende cuando quieras en nuestra web</h2>
+            </div>
+        </section>
+    </div>
+{% endblock content %}

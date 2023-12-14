@@ -1,0 +1,49 @@
+/* BIENVENIDA RESPONSIVE */
+
+.TXT {
+  padding-right: 2vw;
+}
+
+
+.bienvenida {
+  font-size: 8.5vw;
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  margin-top: 40vh;
+  margin-bottom: 40vh;
+  z-index: -1;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .bienvenida {
+    font-size: 12vw;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 43vh;
+    align-items: center;
+  }
+}
+
+.welcome {
+  color: #163755;
+  font-family: "Futura", "Times New Roman";
+  display: flex;
+  align-items: center;
+}
+
+.FOLIXTITULO {
+  text-align: center;
+  font-size: 2.3em;
+}
+
+.FOLIX.TXT:hover {
+  color: #18568c;
+  text-decoration: underline;
+  -o-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'game/styles/style.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="progress-bar-container">
+          <div class="close-button">
+            <img src="{% static 'game/assets/close.svg' %}" />
+          </div>
+          <div class="progress-bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+      </div>
+      <div class = "body">
+        <div class="board">
+          <h1 class="board-header">Traduce esta oración:</h1>
+          <br />
+          <div class="target-lang-container">
+            <div class="Folix">
+              <img class="avatar-img" src="{% static 'game/assets/folix.svg' %}" />
+            </div>
+            <div class="speech-bubble">
+              <div class="sent-container"></div>
+            </div>
+          </div>
+          <div class="answer-field"></div>
+          <div class="random-words-field"></div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-items-container">
+          <div class="item left">
+            <button>skip</button>
+          </div>
+          <div class="item"></div>
+          <div class="item center">
+            <img src="{% static 'game/assets/keyboard.svg' %}" />
+            <span>use keyboard</span>
+          </div>
+          <div class="item"></div>
+          <div class="item right">
+            <button class="check-button">check</button>
+          </div>
+        </div>
+      </div>
+      <div class="win-footer">
+        <div class="footer-items-container">
+          <div class="item left">
+            <div class="sign-container">
+              <img src="{% static 'game/assets/check.svg' %}" />
+            </div>
+            <div class="desc-container">
+              <span class="motivational-word">Excelente</span>
+              <span class="report">REPORT</span>
+            </div>
+          </div>
+          <div class="item"></div>
+          <div class="item center"></div>
+          <div class="item"></div>
+          <div class="item right">
+            <button class="continue-button">Continuar</button>
+          </div>
+        </div>
+      </div>
+      <div class="lose-footer">
+        <div class="footer-items-container">
+          <div class="item left">
+            <div class="sign-container">
+              <img src="{% static 'game/assets/error.svg' %}" />
+            </div>
+            <div class="desc-container">
+              <span class="motivational-word">Correct solution</span>
+              <span class="report">REPORT</span>
+            </div>
+          </div>
+          <div class="item"></div>
+          <div class="item center"></div>
+          <div class="item"></div>
+          <div class="item right">
+            <button class="continue-button-fail">continuar</button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="You_are_a_cheater">
+          {{ exercise|json_script:"exercise" }}
+          {{ words|json_script:"words" }}
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+      const exercise = JSON.parse(document.getElementById('exercise').textContent)
+      const words = JSON.parse(document.getElementById('words').textContent)
+
+      console.log(exercise, words);
+  </script>
+  <script src="{% static 'game/js/data.js' %}"></script>
+  <script src="{% static 'game/js/main.js' %}"></script>
+</html>
